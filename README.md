@@ -1,6 +1,3 @@
 
 # piano_app
-
-
-https://github.com/user-attachments/assets/a25367a2-69f9-40c8-abb3-45bf7a9d56fb
-
+https://github.com/user-attachments/assets/613c3fd8-0ff9-49eb-878d-63a130768a5b
