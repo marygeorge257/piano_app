@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:piano_app/piano_hive/progress_model.dart';
+import 'package:piano_app/piano_widget/widgets.dart';
 
 class ProgressScreen extends StatefulWidget {
   const ProgressScreen({super.key});
@@ -93,6 +94,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
           },
         ),
       ),
+      bottomNavigationBar: Buttons(selectedIndex: 2),
     );
   }
 }
