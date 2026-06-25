@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:piano_app/pianoModels/song_model.dart';
 import 'package:piano_app/pianoScreens/practice_screen.dart';
+import 'package:piano_app/piano_widget/widgets.dart';
 
 class SongSelectionScreen extends StatelessWidget {
   const SongSelectionScreen({super.key});
@@ -136,6 +137,7 @@ class SongSelectionScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: Buttons(selectedIndex: 1),
     );
   }
 }
