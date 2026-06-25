@@ -71,7 +71,7 @@ class EvaluationScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(height: 20),
                         Column(
                           children: [
                             Text(
@@ -97,57 +97,64 @@ class EvaluationScreen extends StatelessWidget {
                                 fontSize: 25,
                               ),
                             ),
-
-
                           ],
                         ),
-
                       ],
                     ),
                   ),
-                  SizedBox(height: 40,),
-                 Column(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   crossAxisAlignment: CrossAxisAlignment.center,
+                  SizedBox(height: 40),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
 
-                   children: [
-                     ElevatedButton(
-                       onPressed: () {
-                         Navigator.push(context, MaterialPageRoute(builder: (context)=>ProgressScreen()));
-                       },
-                       style: ElevatedButton.styleFrom(
-                         backgroundColor: Color(0xFF7E6FED),
-                         shadowColor: Colors.transparent,
-                       ),
-                       child: const Text(
-                         "View Progress",
-                         style: TextStyle(
-                           fontSize: 30,
-                           fontWeight: FontWeight.bold,
-                           color: Color(0xFFD8E5F4),
-                         ),
-                       ),
-                     ),
-                     SizedBox(height: 15,),
-                     ElevatedButton(
-                       onPressed: () {
-                         Navigator.push(context, MaterialPageRoute(builder: (context)=>SongSelectionScreen()));
-                       },
-                       style: ElevatedButton.styleFrom(
-                         backgroundColor: Color(0xFF7E6FED),
-                         shadowColor: Colors.transparent,
-                       ),
-                       child: const Text(
-                         "Another Practice",
-                         style: TextStyle(
-                           fontSize: 30,
-                           fontWeight: FontWeight.bold,
-                           color: Color(0xFFD8E5F4),
-                         ),
-                       ),
-                     ),
-                   ],
-                 )
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProgressScreen(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF7E6FED),
+                          shadowColor: Colors.transparent,
+                        ),
+                        child: const Text(
+                          "View Progress",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFD8E5F4),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 15),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SongSelectionScreen(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF7E6FED),
+                          shadowColor: Colors.transparent,
+                        ),
+                        child: const Text(
+                          "Another Practice",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFD8E5F4),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               );
             }
