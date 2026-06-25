@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:piano_app/pianoScreens/song_selection_screen.dart';
 import 'package:piano_app/pianoScreens/progress_screen.dart';
+import 'package:piano_app/piano_widget/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,14 +11,12 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: Icon(Icons.menu, size: 25),
         centerTitle: true,
         title: Text(
           "Melora",
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
-
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -42,10 +41,9 @@ class HomeScreen extends StatelessWidget {
                     color: Color(0xFF5C35ED),
                   ),
                 ),
-
                 SizedBox(height: 30),
                 Text(
-                  "The Resonant \n      Space ",
+                  "The Resonant \n Space ",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
@@ -113,6 +111,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: Buttons(selectedIndex: 0),
     );
   }
 }
