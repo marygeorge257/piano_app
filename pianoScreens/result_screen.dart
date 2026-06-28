@@ -93,60 +93,56 @@ class _ResultScreenState extends State<ResultScreen> {
                 ),
                 SizedBox(height: 15),
                 Container(
+                  width: double.infinity,
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      begin: Alignment.bottomRight,
-                      end: Alignment.bottomLeft,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                       colors: [Color(0xFFB9B4E8), Color(0xFF7E6FED)],
                     ),
                     borderRadius: BorderRadius.circular(20),
                   ),
+
                   child: Column(
                     children: [
                       Text(
                         "Review Your Sound",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                          fontSize: 20,
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(height: 10),
-                      ElevatedButton.icon(
-                        onPressed: () async {
-                          player.play(AssetSource(widget.song.audio));
-                        },
 
-                        icon: Icon(
-                          Icons.play_circle,
-                          size: 20,
-                          color: Colors.deepPurple,
-                        ),
-                        label: Text(
-                          "Play Reference Sound",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                      SizedBox(height: 15),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton.icon(
+                            onPressed: () async {
+                              player.play(AssetSource(widget.song.audio));
+                            },
+
+                            icon: Icon(
+                              Icons.play_arrow,
+                              color: Colors.deepPurple,
+                            ),
+
+                            label: Text("Play"),
                           ),
-                        ),
-                      ),
-                      SizedBox(height: 2),
-                      ElevatedButton.icon(
-                        onPressed: () async {
-                          await player.pause();
-                        },
-                        icon: const Icon(Icons.pause_circle_filled_rounded, size: 20,
-                          color: Colors.deepPurple,),
-                        label: const Text(
-                          "Pause",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+
+                          SizedBox(width: 10),
+
+                          ElevatedButton.icon(
+                            onPressed: () async {
+                              await player.pause();
+                            },
+                            icon: Icon(Icons.pause, color: Colors.deepPurple),
+                            label: Text("Pause"),
                           ),
-                        ),
+                        ],
                       ),
                     ],
                   ),
@@ -188,6 +184,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     ChoiceChip(
                       label: Text("Yes"),
                       selected: noteAnswer == "Yes",
+                      selectedColor: Color(0xFFB2A9F1),
                       onSelected: (value) {
                         setState(() {
                           noteAnswer = "Yes";
@@ -197,6 +194,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     ChoiceChip(
                       label: Text("Somewhat"),
                       selected: noteAnswer == "Somewhat",
+                      selectedColor: Color(0xFFB2A9F1),
                       onSelected: (value) {
                         setState(() {
                           noteAnswer = "Somewhat";
@@ -206,6 +204,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     ChoiceChip(
                       label: Text("No"),
                       selected: noteAnswer == "No",
+                      selectedColor: Color(0xFFB2A9F1),
                       onSelected: (value) {
                         setState(() {
                           noteAnswer = "No";
@@ -225,6 +224,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     ChoiceChip(
                       label: Text("Yes"),
                       selected: rhythmAnswer == "Yes",
+                      selectedColor: Color(0xFFB2A9F1),
                       onSelected: (value) {
                         setState(() {
                           rhythmAnswer = "Yes";
@@ -234,6 +234,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     ChoiceChip(
                       label: Text("Somewhat"),
                       selected: rhythmAnswer == "Somewhat",
+                      selectedColor: Color(0xFFB2A9F1),
                       onSelected: (value) {
                         setState(() {
                           rhythmAnswer = "Somewhat";
@@ -243,6 +244,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     ChoiceChip(
                       label: Text("No"),
                       selected: rhythmAnswer == "No",
+                      selectedColor: Color(0xFFB2A9F1),
                       onSelected: (value) {
                         setState(() {
                           rhythmAnswer = "No";
@@ -270,16 +272,20 @@ class _ResultScreenState extends State<ResultScreen> {
                       ),
                     );
                   },
+
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF7E6FED),
-                    shadowColor: Colors.transparent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                   ),
-                  child: const Text(
+
+                  child: Text(
                     "Calculate Result",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFFD8E5F4),
+                      color: Colors.white,
                     ),
                   ),
                 ),
