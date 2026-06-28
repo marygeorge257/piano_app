@@ -40,11 +40,10 @@ class EvaluationScreen extends StatelessWidget {
           builder: (context, state) {
             if (state is ResultCalculated) {
               return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-
                 children: [
                   Container(
-                    padding: EdgeInsets.all(20),
+                    margin: EdgeInsets.all(20),
+                    padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                     width: double.infinity,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -52,11 +51,10 @@ class EvaluationScreen extends StatelessWidget {
                         end: Alignment.bottomLeft,
                         colors: [Color(0xFFB9B4E8), Color(0xFF7E6FED)],
                       ),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(25),
                     ),
+
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CircleAvatar(
                           radius: 40,
@@ -72,43 +70,54 @@ class EvaluationScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 20),
-                        Column(
-                          children: [
-                            Text(
-                              song.song,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 35,
-                              ),
+                        Text(
+                          song.song,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(height: 15),
+                        Text(
+                          "Performance Level : ${state.result}",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        SizedBox(height: 20),
+
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Text(
+                            "Score : ${state.score}%",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                              color: Colors.white,
                             ),
-                            SizedBox(height: 15),
-                            Text(
-                              "Performance Level : ${state.result}",
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 15),
-                            Text(
-                              "Score : ${state.score}%",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 40),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-
-                    children: [
-                      ElevatedButton(
+                  Spacer(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 55,
+                      child: ElevatedButton.icon(
                         onPressed: () {
                           Navigator.pushReplacement(
                             context,
@@ -119,19 +128,31 @@ class EvaluationScreen extends StatelessWidget {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF7E6FED),
-                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                         ),
-                        child: const Text(
+                        icon: Icon(Icons.bar_chart, color: Colors.white),
+                        label: Text(
                           "View Progress",
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFFD8E5F4),
+                            color: Colors.white,
                           ),
                         ),
                       ),
-                      SizedBox(height: 15),
-                      ElevatedButton(
+                    ),
+                  ),
+
+                  SizedBox(height: 15),
+
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 55,
+                      child: ElevatedButton.icon(
                         onPressed: () {
                           Navigator.pushReplacement(
                             context,
@@ -140,21 +161,29 @@ class EvaluationScreen extends StatelessWidget {
                             ),
                           );
                         },
+
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF7E6FED),
-                          shadowColor: Colors.transparent,
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                         ),
-                        child: const Text(
-                          "Another Practice",
+
+                        icon: Icon(Icons.refresh, color: Color(0xFF7E6FED)),
+
+                        label: Text(
+                          "Practice Again",
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFFD8E5F4),
+                            color: Color(0xFF7E6FED),
                           ),
                         ),
                       ),
-                    ],
+                    ),
                   ),
+
+                  SizedBox(height: 30),
                 ],
               );
             }
