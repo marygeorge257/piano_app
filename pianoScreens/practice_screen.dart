@@ -31,18 +31,50 @@ class PracticeScreen extends StatelessWidget {
                 "Instructions :",
                 style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               ),
-              Text("1.Practice the piece", style: TextStyle(fontSize: 15)),
-              Text(
-                "2.Try to play all notes correctly and maintain a steady rhythm.",
-                style: TextStyle(fontSize: 15),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Icon(Icons.music_note, color: Color(0xFF7E6FED)),
+                  SizedBox(width: 8),
+                  Text("1. Practice the piece", style: TextStyle(fontSize: 17)),
+                ],
               ),
-              Text(
-                "3.Measure your time using a timer",
-                style: TextStyle(fontSize: 15),
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Icon(Icons.piano, color: Color(0xFF7E6FED)),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      "2. Try to play all notes correctly\nand maintain a steady rhythm.",
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                "4.Keep the time in mind, then press Done to proceed to the next step.",
-                style: TextStyle(fontSize: 15),
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Icon(Icons.timer, color: Color(0xFF7E6FED)),
+                  SizedBox(width: 8),
+                  Text(
+                    "3. Measure your time using a timer",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Icon(Icons.check_circle, color: Color(0xFF7E6FED)),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      "4. Press Done to proceed to the next step.",
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 30),
               Row(
@@ -53,7 +85,9 @@ class PracticeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ResultScreen(song: song,)),
+                        MaterialPageRoute(
+                          builder: (context) => ResultScreen(song: song),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -63,7 +97,7 @@ class PracticeScreen extends StatelessWidget {
                     child: const Text(
                       "Done",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFFD8E5F4),
                       ),
