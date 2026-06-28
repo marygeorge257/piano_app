@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:piano_app/pianoScreens/song_selection_screen.dart';
 import 'package:piano_app/pianoScreens/progress_screen.dart';
-import 'package:piano_app/piano_widget/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -111,7 +110,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Buttons(selectedIndex: 0),
     );
   }
 }
