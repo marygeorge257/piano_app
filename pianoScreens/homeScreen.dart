@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "Melora",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
       body: Container(
