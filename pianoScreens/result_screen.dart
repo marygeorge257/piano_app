@@ -36,12 +36,12 @@ class _ResultScreenState extends State<ResultScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_rounded, size: 25),
+          icon: Icon(Icons.arrow_back_ios_rounded, size: 30),
         ),
         centerTitle: true,
         title: Text(
           "Melora",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
       body: Container(
@@ -263,6 +263,23 @@ class _ResultScreenState extends State<ResultScreen> {
                       rhythmAnswer: rhythmAnswer,
                       songName: widget.song.song,
                       difficulty: widget.song.difficulty,
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          "Great! check your progress",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        backgroundColor: Color(0xFF706BA1),
+                        behavior: SnackBarBehavior.floating,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)
+                        ),
+                        duration: Duration(seconds: 3),
+                      ),
                     );
                     Navigator.push(
                       context,
