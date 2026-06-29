@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:piano_app/pianoModels/song_model.dart';
 import 'package:piano_app/pianoScreens/practice_screen.dart';
-import 'package:piano_app/piano_widget/widgets.dart';
 
 class SongSelectionScreen extends StatelessWidget {
   const SongSelectionScreen({super.key});
@@ -15,12 +14,12 @@ class SongSelectionScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_rounded, size: 25),
+          icon: Icon(Icons.arrow_back_ios_rounded, size: 30),
         ),
         centerTitle: true,
         title: Text(
           "Melora",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
       body: Container(
@@ -62,7 +61,7 @@ class SongSelectionScreen extends StatelessWidget {
                   color: Color(0xFF566E77),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Expanded(
                 child: ListView.builder(
                   itemCount: songList.length,
@@ -85,7 +84,7 @@ class SongSelectionScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(25),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(5),
+                            padding: EdgeInsets.all(7),
                             child: Row(
                               children: [
                                 CircleAvatar(
@@ -123,7 +122,7 @@ class SongSelectionScreen extends StatelessWidget {
                                   ],
                                 ),
                                 Spacer(),
-                                Icon(Icons.arrow_forward_ios_rounded, size: 20),
+                                Icon(Icons.arrow_forward_ios_rounded, size: 25),
                               ],
                             ),
                           ),
@@ -137,7 +136,6 @@ class SongSelectionScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Buttons(selectedIndex: 1),
     );
   }
 }
