@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:piano_app/piano_hive/progress_model.dart';
-import 'package:piano_app/piano_widget/widgets.dart';
 
 class ProgressScreen extends StatefulWidget {
   const ProgressScreen({super.key});
@@ -20,12 +19,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios_rounded, size: 25),
+          icon: const Icon(Icons.arrow_back_ios_rounded, size: 30),
         ),
         centerTitle: true,
         title: const Text(
           "Melora",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
       body: Container(
@@ -94,7 +93,6 @@ class _ProgressScreenState extends State<ProgressScreen> {
           },
         ),
       ),
-      bottomNavigationBar: Buttons(selectedIndex: 2),
     );
   }
 }
