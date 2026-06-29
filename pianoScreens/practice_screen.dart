@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:piano_app/pianoModels/song_model.dart';
 import 'package:piano_app/pianoScreens/song_selection_screen.dart';
-import 'package:piano_app/pianoScreens/result_screen.dart';
+import 'package:piano_app/pianoScreens/progress_screen.dart';
 
-class PracticeScreen extends StatelessWidget {
-  final SongModel song;
-
-  const PracticeScreen({super.key, required this.song});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(song.song), centerTitle: true),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: Text(
+          "Melora",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -22,90 +26,87 @@ class PracticeScreen extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(25),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset(song.image, width: double.infinity),
-              Text(
-                "Instructions :",
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Icon(Icons.music_note, color: Color(0xFF7E6FED)),
-                  SizedBox(width: 8),
-                  Text("1. Practice the piece", style: TextStyle(fontSize: 17)),
-                ],
-              ),
-              SizedBox(height: 8),
-              Row(
-                children: [
-                  Icon(Icons.piano, color: Color(0xFF7E6FED)),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      "2. Try to play all notes correctly\nand maintain a steady rhythm.",
-                      style: TextStyle(fontSize: 17),
+          padding: EdgeInsets.all(40),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Color(0xFFD7E6ED),
+                  radius: 60,
+                  child: Icon(
+                    Icons.volume_up_rounded,
+                    size: 40,
+                    color: Color(0xFF5C35ED),
+                  ),
+                ),
+                SizedBox(height: 30),
+                Text(
+                  "The Resonant \n Space ",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  "FIND YOUR RHYTHM . HOLD THE NOTE",
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.blueGrey[200],
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 45),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomRight,
+                      end: Alignment.bottomLeft,
+                      colors: [Color(0xFFB9B4E8), Color(0xFF7E6FED)],
                     ),
+                    borderRadius: BorderRadius.circular(35),
                   ),
-                ],
-              ),
-              SizedBox(height: 8),
-              Row(
-                children: [
-                  Icon(Icons.timer, color: Color(0xFF7E6FED)),
-                  SizedBox(width: 8),
-                  Text(
-                    "3. Measure your time using a timer",
-                    style: TextStyle(fontSize: 17),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8),
-              Row(
-                children: [
-                  Icon(Icons.check_circle, color: Color(0xFF7E6FED)),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      "4. Press Done to proceed to the next step.",
-                      style: TextStyle(fontSize: 17),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ElevatedButton(
+                  child: ElevatedButton.icon(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ResultScreen(song: song),
+                          builder: (context) => SongSelectionScreen(),
                         ),
                       );
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF7E6FED),
-                      shadowColor: Colors.transparent,
-                    ),
-                    child: const Text(
-                      "Done",
+                    icon: Icon(Icons.play_arrow, color: Colors.white, size: 30),
+                    label: Text(
+                      "Start Practice",
                       style: TextStyle(
-                        fontSize: 25,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFD8E5F4),
+                        fontSize: 30,
+                        color: Colors.white,
                       ),
                     ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                    ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 15),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProgressScreen()),
+                    );
+                  },
+                  child: Text(
+                    "Progress",
+                    style: TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
